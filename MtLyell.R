@@ -6,6 +6,6 @@ MVZ_sorex<-
   get_records(scientific_name="Sorex lyelli", guid_prefix="MVZ:Mamm", 
               columns=list("guid", "year_collected"),all_records = TRUE)
 SorexDF<-response_data(MVZ_sorex)
-ggplot(data=SorexDF, aes(x=guid, y=year_collected))+
+ggplot(data=SorexDF, aes(x=collection_object_id, y=year_collected))+
   geom_point()
 
