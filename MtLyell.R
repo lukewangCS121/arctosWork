@@ -7,5 +7,7 @@ MVZ_sorex<-
               columns=list("guid", "year_collected"),all_records = TRUE)
 SorexDF<-response_data(MVZ_sorex)
 ggplot(data=SorexDF, aes(x=factor(year_collected)))+
+  xlab("Year Collected")+
+  ylab("Count")+
   geom_bar()#bar_chart
 
