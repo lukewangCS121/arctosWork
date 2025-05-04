@@ -4,7 +4,7 @@ library(dplyr)
 result_params <- get_result_parameters()
 mvz_bat<-
   get_records(guid_prefix="MVZ:Mamm", scientific_name="Myotis",
-              columns=list("guid","weight","total_length"),all_records = TRUE)
+              columns=list("guid","weight","total_length"),all_records = TRUE)#wingspan?
 batDF<-response_data(mvz_bat)
 batDF<-batDF|>
   filter(weight!=""&total_length!="")
