@@ -7,4 +7,5 @@ MVZ_Scel<-
               columns=list("guid"),all_records = TRUE)
 ScelDF<-response_data(MVZ_Scel)
 head(ScelDF)
+#Get JSON table
 

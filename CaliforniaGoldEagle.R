@@ -19,19 +19,19 @@ points_vect <- vect(goldNADF, geom = c("dec_long", "dec_lat"), crs = "EPSG:4326"
 bio1_vals <- extract(bio_climate[[1]], points_vect)#take coordinate points and look up values of each bioclimatic variable
 clim_values <- extract(bio_climate, points_vect)
 clim_values |> names()
-gold_temp <- bind_cols(goldNADF, clim_values |> select(wc2.1_5m_bio_1))#selects only first column, bind with original data
+gold_temp <- bind_cols(goldNADF, clim_values |> select(wc2.1_5m_bio_5))#selects only first column, bind with original data
 gold_temp <- gold_temp |> 
-  rename(annual_mean_temp = wc2.1_5m_bio_1)
+  rename(monthly_max = wc2.1_5m_bio_5)
 head(gold_temp)
 summary_gold <- gold_temp |> 
   summarise(
     count = n(),
-    mean_temp = mean(annual_mean_temp, na.rm = TRUE) ,
-    min_temp = min(annual_mean_temp, na.rm = TRUE),
-    max_temp = max(annual_mean_temp, na.rm = TRUE),
-    median_temp = median(annual_mean_temp, na.rm = TRUE)
+    mean_temp = mean(monthly_max, na.rm = TRUE) ,
+    min_temp = min(monthly_max, na.rm = TRUE),
+    max_temp = max(monthly_max, na.rm = TRUE),
+    median_temp = median(monthly_max, na.rm = TRUE)
   )
-summary_gold
+summary_gold 
 
 #Mapping, will use later
 # CA_map <- map_data("state") |> 
